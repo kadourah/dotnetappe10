@@ -4,9 +4,14 @@ metadata:
   name: dotnet-app-19
   labels:
     apps.tanzu.vmware.com/workload-type: web
+    apps.tanzu.vmware.com/has-tests:  true
     app.kubernetes.io/part-of: dotnet-app-19
 spec:
   params:
+  - name: testing_pipeline_matching_labels
+    value:
+      apps.tanzu.vmware.com/pipeline: test
+      apps.tanzu.vmware.com/language: dotnet
   - name: annotations
     value:
       autoscaling.knative.dev/minScale: "1"
